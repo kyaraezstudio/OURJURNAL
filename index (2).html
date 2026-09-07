@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="OUR JOURNAL — A quiet space for every Muslimah. Read · Remember · Reflect." />
+  <meta name="theme-color" content="#123C35" />
+  <title>OUR JOURNAL — A quiet space for every Muslimah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Custom Moon Cursor -->
+  <div class="moon-cursor" id="moonCursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- Desktop Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#home" class="logo" data-nav="home">
+        <span class="logo-mark">✦</span>
+        <span class="logo-text">OUR JOURNAL</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" data-nav="home">Home</a>
+        <a href="#journal" class="nav-link" data-nav="journal">Journal</a>
+        <a href="#adhkar" class="nav-link" data-nav="adhkar">Adhkar</a>
+        <a href="#quran" class="nav-link" data-nav="quran">Qur'an</a>
+        <a href="#quiz" class="nav-link" data-nav="quiz">Quiz</a>
+        <a href="#cycle" class="nav-link" data-nav="cycle">Cycle</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon light-icon">☀</span>
+          <span class="theme-icon dark-icon">☾</span>
+        </button>
+        <button class="settings-btn" id="settingsBtn" aria-label="Open settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#home" class="mobile-nav-item active" data-nav="home">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="#journal" class="mobile-nav-item" data-nav="journal">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      <span>Journal</span>
+    </a>
+    <a href="#quran" class="mobile-nav-item" data-nav="quran">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+      <span>Qur'an</span>
+    </a>
+    <a href="#adhkar" class="mobile-nav-item" data-nav="adhkar">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span>Adhkar</span>
+    </a>
+    <button class="mobile-nav-item more-btn" id="moreBtn" aria-label="More options">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+      <span>More</span>
+    </button>
+  </nav>
+
+  <!-- More Menu (Mobile) -->
+  <div class="more-menu" id="moreMenu" hidden>
+    <div class="more-menu-backdrop" id="moreBackdrop"></div>
+    <div class="more-menu-sheet">
+      <div class="more-handle"></div>
+      <a href="#quiz" class="more-item" data-nav="quiz">Quiz</a>
+      <a href="#cycle" class="more-item" data-nav="cycle">Cycle</a>
+      <a href="#progress" class="more-item" data-nav="progress">Progress</a>
+      <button class="more-item" id="moreSettings">Settings</button>
+    </div>
+  </div>
+
+  <main id="mainContent">
+    <!-- ==================== HOME ==================== -->
+    <section id="home" class="page active" data-page="home">
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-ornament" aria-hidden="true">
+          <svg viewBox="0 0 200 80" class="geo-line">
+            <path d="M10 40 Q50 10 100 40 T190 40" fill="none" stroke="currentColor" stroke-width="0.6"/>
+            <circle cx="100" cy="40" r="3" fill="currentColor"/>
+            <path d="M20 50 L30 50 M170 50 L180 50" stroke="currentColor" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <p class="hero-bismillah amiri" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+        <h1 class="hero-title">a space to reconnect.</h1>
+        <p class="hero-subtitle">A quiet space for every Muslimah.</p>
+        <p class="hero-philosophy">Read · Remember · Reflect</p>
+        <a href="#journal" class="btn btn-primary hero-cta" data-nav="journal">
+          Begin today's journey
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- Live Time Block -->
+      <div class="section time-block">
+        <div class="section-label">LIVE LOCAL TIME</div>
+        <div class="time-display">
+          <div class="clock" id="liveClock">--:--:--</div>
+          <div class="date-line" id="liveDate">—</div>
+          <div class="tz-line" id="liveTz">—</div>
+        </div>
+        <p class="greeting" id="dynamicGreeting">—</p>
+      </div>
+
+      <!-- Today's Journey -->
+      <div class="section journey-section">
+        <div class="section-label">TODAY</div>
+        <h2 class="section-title">Your Journey</h2>
+        <p class="journey-intro">Assalamu'alaikum.<br>Take a moment. Breathe. Remember.</p>
+        <div class="journey-progress">
+          <span class="progress-text" id="journeyProgressText">0 / 6 completed</span>
+          <div class="progress-bar">
+            <div class="progress-fill" id="journeyProgressFill" style="width: 0%"></div>
+          </div>
+        </div>
+        <div class="journey-actions" id="journeyActions">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Daily Actions Grid -->
+      <div class="section actions-section">
+        <div class="section-label">REMEMBRANCE</div>
+        <h2 class="section-title">Daily Actions</h2>
+        <div class="actions-grid">
+          <a href="#adhkar" class="action-card action-large" data-nav="adhkar" data-adhkar-tab="morning">
+            <div class="action-icon">☾</div>
+            <h3>Morning Adhkar</h3>
+            <p>Begin with remembrance.</p>
+            <span class="action-cta">Start morning adhkar →</span>
+          </a>
+          <a href="#quran" class="action-card" data-nav="quran">
+            <div class="action-icon">✦</div>
+            <h3>Qur'an</h3>
+            <p>Continue your reading.</p>
+            <span class="action-cta">Continue reading →</span>
+          </a>
+          <a href="#quran" class="action-card" data-nav="quran" data-quran-tab="murojaah">
+            <div class="action-icon">◉</div>
+            <h3>Murojaah</h3>
+            <p>Review what you've memorized.</p>
+            <span class="action-cta">Start murojaah →</span>
+          </a>
+          <a href="#adhkar" class="action-card" data-nav="adhkar" data-adhkar-tab="evening">
+            <div class="action-icon">☽</div>
+            <h3>Evening Adhkar</h3>
+            <p>End your day with remembrance.</p>
+            <span class="action-cta">Begin evening adhkar →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Prayer Today -->
+      <div class="section prayer-section">
+        <div class="section-label">PRAYER</div>
+        <h2 class="section-title">Prayer Today</h2>
+        <div class="prayer-next" id="prayerNext">
+          <span class="prayer-next-label">Next Prayer</span>
+          <span class="prayer-next-name" id="nextPrayerName">—</span>
+          <span class="prayer-next-countdown" id="nextPrayerCountdown">—</span>
+        </div>
+        <div class="prayer-times" id="prayerTimes">
+          <div class="prayer-fallback">
+            <p>Location access is needed for accurate prayer times.</p>
+            <button class="btn btn-secondary" id="requestLocationBtn">Use my location</button>
+            <button class="btn btn-ghost" id="manualCityBtn">Choose city manually</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daily Quote -->
+      <div class="section quote-section">
+        <div class="section-label">REFLECTION</div>
+        <blockquote class="daily-quote">
+          <p class="quote-arabic amiri" dir="rtl" id="quoteArabic">الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ</p>
+          <p class="quote-translation" id="quoteTranslation">Those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts are assured.</p>
+          <cite class="quote-source" id="quoteSource">Qur'an 13:28 · Ar-Ra'd</cite>
+        </blockquote>
+      </div>
+
+      <!-- Qur'an Journey -->
+      <div class="section quran-journey-section">
+        <div class="section-label">QUR'AN</div>
+        <h2 class="section-title">Your Qur'an Journey</h2>
+        <div class="quran-cards">
+          <div class="quran-card">
+            <span class="card-label">Continue Reading</span>
+            <h3 id="continueSurah">Al-Mulk</h3>
+            <p id="continueAyat">Ayat 1–10</p>
+            <a href="#quran" class="btn btn-ghost" data-nav="quran">Continue Reading →</a>
+          </div>
+          <div class="quran-card">
+            <span class="card-label">Murojaah</span>
+            <h3 id="murojaahJuz">Juz 30</h3>
+            <div class="mini-progress">
+              <div class="mini-progress-fill" id="murojaahProgress" style="width: 0%"></div>
+            </div>
+            <p id="murojaahPercent">0%</p>
+            <a href="#quran" class="btn btn-ghost" data-nav="quran" data-quran-tab="murojaah">Start Murojaah →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today's Reflection Teaser -->
+      <div class="section reflection-teaser">
+        <div class="section-label">JOURNAL</div>
+        <h2 class="section-title">What's on your heart today?</h2>
+        <textarea id="homeReflection" class="reflection-input" placeholder="Write a few lines..." rows="3"></textarea>
+        <div class="mood-row" id="homeMoods">
+          <button class="mood-btn" data-mood="calm">Calm</button>
+          <button class="mood-btn" data-mood="happy">Happy</button>
+          <button class="mood-btn" data-mood="peaceful">Peaceful</button>
+          <button class="mood-btn" data-mood="reflective">Reflective</button>
+        </div>
+        <button class="btn btn-primary" id="saveHomeReflection">Save Reflection</button>
+      </div>
+
+      <!-- Cycle Teaser -->
+      <div class="section cycle-teaser">
+        <div class="section-label">CYCLE</div>
+        <h2 class="section-title">My Cycle</h2>
+        <div class="cycle-summary" id="cycleSummary">
+          <div class="cycle-stat">
+            <span class="stat-label">Cycle Day</span>
+            <span class="stat-value" id="cycleDay">—</span>
+          </div>
+          <div class="cycle-stat">
+            <span class="stat-label">Estimated next</span>
+            <span class="stat-value" id="cycleNext">—</span>
+          </div>
+        </div>
+        <a href="#cycle" class="btn btn-ghost" data-nav="cycle">View Cycle →</a>
+      </div>
+
+      <!-- Ending -->
+      <div class="section ending-section">
+        <p class="ending-text">May today bring you closer.</p>
+        <p class="ending-ameen amiri">آمين</p>
+        <button class="btn btn-ghost" id="returnTop">Return to top ↑</button>
+      </div>
+    </section>
+
+    <!-- ==================== JOURNAL ==================== -->
+    <section id="journal" class="page" data-page="journal">
+      <div class="page-header">
+        <div class="section-label">JOURNAL</div>
+        <h1 class="page-title">What's on your heart today?</h1>
+        <p class="page-subtitle" id="journalPrompt">Take a quiet moment to write.</p>
+      </div>
+
+      <div class="journal-layout">
+        <div class="journal-compose">
+          <textarea id="journalText" class="journal-textarea" placeholder="Write freely..." rows="8"></textarea>
+          <div class="mood-row" id="journalMoods">
+            <button class="mood-btn" data-mood="calm">Calm</button>
+            <button class="mood-btn" data-mood="happy">Happy</button>
+            <button class="mood-btn" data-mood="peaceful">Peaceful</button>
+            <button class="mood-btn" data-mood="reflective">Reflective</button>
+            <button class="mood-btn" data-mood="grateful">Grateful</button>
+          </div>
+          <div class="gratitude-block">
+            <label class="field-label">Gratitude</label>
+            <input type="text" id="gratitude1" class="gratitude-input" placeholder="I am grateful for..." />
+            <input type="text" id="gratitude2" class="gratitude-input" placeholder="Another blessing..." />
+          </div>
+          <button class="btn btn-primary" id="saveJournal">Save Entry</button>
+        </div>
+
+        <aside class="journal-sidebar">
+          <div class="calendar-widget" id="journalCalendar">
+            <!-- Calendar rendered by JS -->
+          </div>
+          <div class="journal-history" id="journalHistory">
+            <h3 class="sidebar-title">Recent Entries</h3>
+            <div class="history-list" id="historyList"></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="entry-detail" id="entryDetail" hidden>
+        <button class="btn btn-ghost back-btn" id="closeEntry">← Back</button>
+        <div class="entry-content" id="entryContent"></div>
+      </div>
+    </section>
+
+    <!-- ==================== ADHKAR ==================== -->
+    <section id="adhkar" class="page" data-page="adhkar">
+      <div class="page-header">
+        <div class="section-label">REMEMBRANCE</div>
+        <h1 class="page-title">Adhkar</h1>
+        <div class="tabs" role="tablist">
+          <button class="tab active" role="tab" data-tab="morning" aria-selected="true">Morning</button>
+          <button class="tab" role="tab" data-tab="evening" aria-selected="false">Evening</button>
+        </div>
+        <p class="tab-desc" id="adhkarDesc">Begin with remembrance.</p>
+        <div class="adhkar-progress">
+          <span id="adhkarProgressText">0 / 0 completed</span>
+          <div class="progress-bar">
+            <div class="progress-fill" id="adhkarProgressFill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adhkar-list" id="adhkarList">
+        <!-- Populated by JS -->
+      </div>
+
+      <button class="btn btn-secondary focus-mode-btn" id="enterFocusMode">Enter Focus Mode</button>
+    </section>
+
+    <!-- Adhkar Focus Mode Overlay -->
+    <div class="focus-overlay" id="focusOverlay" hidden>
+      <button class="focus-close" id="exitFocusMode" aria-label="Exit focus mode">✕</button>
+      <div class="focus-content">
+        <p class="focus-arabic amiri" id="focusArabic" dir="rtl"></p>
+        <p class="focus-title" id="focusTitle"></p>
+        <div class="focus-counter">
+          <span id="focusCount">0</span>
+          <span class="focus-sep">/</span>
+          <span id="focusTarget">33</span>
+        </div>
+        <button class="focus-tap" id="focusTap">TAP TO COUNT</button>
+        <p class="focus-complete" id="focusComplete" hidden>Alhamdulillah. ✦</p>
+      </div>
+    </div>
+
+    <!-- ==================== QUR'AN ==================== -->
+    <section id="quran" class="page" data-page="quran">
+      <div class="page-header">
+        <div class="section-label">QUR'AN</div>
+        <h1 class="page-title">Qur'an</h1>
+        <div class="tabs" role="tablist">
+          <button class="tab active" role="tab" data-qtab="read" aria-selected="true">Read</button>
+          <button class="tab" role="tab" data-qtab="murojaah" aria-selected="false">Murojaah</button>
+          <button class="tab" role="tab" data-qtab="progress" aria-selected="false">Progress</button>
+        </div>
+      </div>
+
+      <!-- Read Tab -->
+      <div class="quran-panel active" id="quranRead">
+        <div class="quran-continue" id="quranContinueCard">
+          <span class="card-label">Continue Reading</span>
+          <h3 id="readerContinueTitle">Al-Mulk</h3>
+          <button class="btn btn-primary" id="continueReadingBtn">Continue →</button>
+        </div>
+        <div class="juz-grid" id="juzGrid">
+          <!-- Juz 1-30 -->
+        </div>
+        <div class="surah-search">
+          <input type="search" id="surahSearch" placeholder="Search Surah..." aria-label="Search Surah" />
+        </div>
+        <div class="surah-list" id="surahList"></div>
+      </div>
+
+      <!-- Reader View -->
+      <div class="quran-reader" id="quranReader" hidden>
+        <div class="reader-header">
+          <button class="btn btn-ghost" id="closeReader">← Back</button>
+          <div class="reader-meta">
+            <span id="readerSurahNum">67</span>
+            <span class="dot">·</span>
+            <span id="readerSurahName">Al-Mulk</span>
+            <span class="reader-en" id="readerSurahEn">The Sovereignty</span>
+          </div>
+          <div class="reader-controls">
+            <button class="ctrl-btn" id="fontDecrease" aria-label="Decrease font">A−</button>
+            <button class="ctrl-btn" id="fontIncrease" aria-label="Increase font">A+</button>
+            <button class="ctrl-btn" id="toggleTranslation" aria-label="Toggle translation">Trans</button>
+            <button class="ctrl-btn" id="bookmarkAyah" aria-label="Bookmark">Bookmark</button>
+          </div>
+        </div>
+        <div class="reader-body" id="readerBody">
+          <!-- Ayahs loaded here -->
+        </div>
+        <div class="reader-nav">
+          <button class="btn btn-ghost" id="prevSurah">← Previous</button>
+          <button class="btn btn-ghost" id="nextSurah">Next →</button>
+        </div>
+      </div>
+
+      <!-- Murojaah Tab -->
+      <div class="quran-panel" id="quranMurojaah" hidden>
+        <div class="murojaah-setup" id="murojaahSetup">
+          <h3>What would you like to review?</h3>
+          <div class="muro-options">
+            <label class="radio-card">
+              <input type="radio" name="muroType" value="juz" checked />
+              <span>By Juz</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="muroType" value="surah" />
+              <span>By Surah</span>
+            </label>
+          </div>
+          <div class="muro-selects">
+            <select id="muroJuzSelect"></select>
+            <select id="muroSurahSelect" hidden></select>
+            <div class="ayah-range">
+              <input type="number" id="muroFrom" min="1" placeholder="From" />
+              <span>—</span>
+              <input type="number" id="muroTo" min="1" placeholder="To" />
+            </div>
+          </div>
+          <div class="muro-mode">
+            <label class="radio-card">
+              <input type="radio" name="muroMode" value="guided" checked />
+              <span>Guided</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="muroMode" value="memory" />
+              <span>Memory</span>
+            </label>
+          </div>
+          <button class="btn btn-primary" id="startMurojaah">Start Murojaah</button>
+        </div>
+
+        <div class="murojaah-session" id="murojaahSession" hidden>
+          <div class="muro-header">
+            <span id="muroTitle">Al-Mulk · 1–10</span>
+            <span class="muro-status" id="muroStatus">● Listening</span>
+          </div>
+          <p class="muro-instruction">Recite when you're ready.</p>
+          <div class="muro-ayah amiri" id="muroAyah" dir="rtl"></div>
+          <div class="muro-controls">
+            <button class="btn btn-primary" id="startRecitation">Start Recitation</button>
+            <button class="btn btn-ghost" id="skipAyah">Skip</button>
+            <button class="btn btn-ghost" id="revealAyah">Reveal</button>
+          </div>
+          <div class="muro-feedback" id="muroFeedback" hidden></div>
+          <div class="muro-progress-bar">
+            <div class="progress-fill" id="muroSessionProgress"></div>
+          </div>
+        </div>
+
+        <div class="murojaah-result" id="murojaahResult" hidden>
+          <h3>Murojaah Complete</h3>
+          <div class="result-stats">
+            <div class="stat"><span id="muroTotalAyat">0</span> ayat</div>
+            <div class="stat matched"><span id="muroMatched">0</span> matched</div>
+            <div class="stat review"><span id="muroReview">0</span> need review</div>
+          </div>
+          <p class="result-time" id="muroTime">—</p>
+          <div class="result-actions">
+            <button class="btn btn-secondary" id="reviewAgain">Review Again</button>
+            <button class="btn btn-primary" id="muroDone">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Tab -->
+      <div class="quran-panel" id="quranProgress" hidden>
+        <div class="progress-cards" id="quranProgressCards">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== QUIZ ==================== -->
+    <section id="quiz" class="page" data-page="quiz">
+      <div class="page-header">
+        <div class="section-label">MEMORY</div>
+        <h1 class="page-title">How well do you remember?</h1>
+        <p class="page-subtitle">Test your memory, one ayah at a time.</p>
+      </div>
+
+      <div class="quiz-setup" id="quizSetup">
+        <div class="quiz-choose">
+          <h3>Choose scope</h3>
+          <div class="muro-options">
+            <label class="radio-card">
+              <input type="radio" name="quizScope" value="juz" checked />
+              <span>By Juz</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="quizScope" value="surah" />
+              <span>By Surah</span>
+            </label>
+          </div>
+          <select id="quizJuzSelect"></select>
+          <select id="quizSurahSelect" hidden></select>
+        </div>
+        <div class="quiz-difficulty">
+          <h3>Difficulty</h3>
+          <div class="diff-options">
+            <label class="radio-card"><input type="radio" name="quizDiff" value="easy" checked /><span>Easy</span></label>
+            <label class="radio-card"><input type="radio" name="quizDiff" value="medium" /><span>Medium</span></label>
+            <label class="radio-card"><input type="radio" name="quizDiff" value="hard" /><span>Hard</span></label>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="startQuiz">Start Quiz</button>
+      </div>
+
+      <div class="quiz-screen" id="quizScreen" hidden>
+        <div class="quiz-meta">
+          <span id="quizScopeLabel">Juz 30</span>
+          <span id="quizQuestionNum">Question 01 / 10</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="quizProgressFill"></div></div>
+        <p class="quiz-question-type" id="quizType">Continue the Ayah</p>
+        <p class="quiz-arabic amiri" id="quizArabic" dir="rtl"></p>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback" id="quizFeedback" hidden></div>
+        <div class="quiz-actions" id="quizActions" hidden>
+          <button class="btn btn-ghost" id="reviewAyahBtn">Review Ayah</button>
+          <button class="btn btn-primary" id="nextQuestionBtn">Next</button>
+        </div>
+      </div>
+
+      <div class="quiz-result" id="quizResult" hidden>
+        <h2>Quiz Complete</h2>
+        <div class="result-score">
+          <span class="score-big" id="quizScore">0 / 10</span>
+          <span class="score-pct" id="quizPct">0%</span>
+        </div>
+        <p id="quizSummary">0 correct · 0 to review</p>
+        <div class="result-actions">
+          <button class="btn btn-secondary" id="reviewMistakes">Review Mistakes</button>
+          <button class="btn btn-primary" id="tryAnotherQuiz">Try Another Quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CYCLE ==================== -->
+    <section id="cycle" class="page" data-page="cycle">
+      <div class="page-header">
+        <div class="section-label">CYCLE</div>
+        <h1 class="page-title">Know your rhythm.</h1>
+        <p class="page-subtitle">Track your cycle with a little more awareness.</p>
+      </div>
+
+      <div class="cycle-overview">
+        <div class="cycle-stat-card">
+          <span class="stat-label">Current Cycle Day</span>
+          <span class="stat-value large" id="cycleCurrentDay">—</span>
+        </div>
+        <div class="cycle-stat-card">
+          <span class="stat-label">Estimated period</span>
+          <span class="stat-value" id="cycleEstPeriod">—</span>
+        </div>
+        <div class="cycle-stat-card">
+          <span class="stat-label">Estimated next cycle</span>
+          <span class="stat-value" id="cycleEstNext">—</span>
+        </div>
+      </div>
+
+      <div class="cycle-calendar" id="cycleCalendar"></div>
+
+      <div class="cycle-form">
+        <h3>Log period start</h3>
+        <input type="date" id="periodStartDate" />
+        <button class="btn btn-primary" id="logPeriod">Save</button>
+      </div>
+
+      <div class="cycle-notes">
+        <h3>Private notes</h3>
+        <textarea id="cycleNotes" rows="3" placeholder="Notes stay on this device only..."></textarea>
+        <button class="btn btn-ghost" id="saveCycleNotes">Save notes</button>
+      </div>
+
+      <p class="disclaimer">Calculations are estimates only and not medical advice.</p>
+    </section>
+
+    <!-- ==================== PROGRESS ==================== -->
+    <section id="progress" class="page" data-page="progress">
+      <div class="page-header">
+        <div class="section-label">PROGRESS</div>
+        <h1 class="page-title">Your Progress</h1>
+        <p class="page-subtitle">Personal only. No leaderboards.</p>
+      </div>
+      <div class="progress-grid" id="progressGrid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Settings Modal -->
+  <div class="modal" id="settingsModal" hidden>
+    <div class="modal-backdrop" id="settingsBackdrop"></div>
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button class="modal-close" id="closeSettings" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-group">
+          <h3>Appearance</h3>
+          <div class="setting-row">
+            <span>Theme</span>
+            <div class="theme-pills">
+              <button class="pill" data-theme="light">Light</button>
+              <button class="pill" data-theme="dark">Dark</button>
+            </div>
+          </div>
+        </div>
+        <div class="setting-group">
+          <h3>Reading</h3>
+          <div class="setting-row">
+            <span>Arabic font size</span>
+            <div class="font-size-ctrl">
+              <button id="setFontSm">A</button>
+              <button id="setFontMd" class="active">A</button>
+              <button id="setFontLg">A</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <label><input type="checkbox" id="showTranslation" checked /> Show translation by default</label>
+          </div>
+        </div>
+        <div class="setting-group">
+          <h3>Preferences</h3>
+          <div class="setting-row">
+            <label><input type="checkbox" id="reduceMotion" /> Reduce motion</label>
+          </div>
+          <div class="setting-row">
+            <label><input type="checkbox" id="soundEffects" /> Sound effects</label>
+          </div>
+        </div>
+        <div class="setting-group">
+          <h3>Data</h3>
+          <button class="btn btn-ghost" id="exportJournal">Export Journal</button>
+          <button class="btn btn-ghost danger" id="clearData">Clear Local Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manual City Modal -->
+  <div class="modal" id="cityModal" hidden>
+    <div class="modal-backdrop" id="cityBackdrop"></div>
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <h2>Choose City</h2>
+        <button class="modal-close" id="closeCity">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="citySearch" placeholder="Search city..." />
+        <div class="city-list" id="cityList">
+          <button class="city-item" data-city="Jakarta" data-lat="-6.2088" data-lng="106.8456">Jakarta</button>
+          <button class="city-item" data-city="Kuala Lumpur" data-lat="3.1390" data-lng="101.6869">Kuala Lumpur</button>
+          <button class="city-item" data-city="Singapore" data-lat="1.3521" data-lng="103.8198">Singapore</button>
+          <button class="city-item" data-city="London" data-lat="51.5074" data-lng="-0.1278">London</button>
+          <button class="city-item" data-city="New York" data-lat="40.7128" data-lng="-74.0060">New York</button>
+          <button class="city-item" data-city="Istanbul" data-lat="41.0082" data-lng="28.9784">Istanbul</button>
+          <button class="city-item" data-city="Cairo" data-lat="30.0444" data-lng="31.2357">Cairo</button>
+          <button class="city-item" data-city="Dubai" data-lat="25.2048" data-lng="55.2708">Dubai</button>
+          <button class="city-item" data-city="Riyadh" data-lat="24.7136" data-lng="46.6753">Riyadh</button>
+          <button class="city-item" data-city="Makkah" data-lat="21.4225" data-lng="39.8262">Makkah</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Dialog -->
+  <div class="modal" id="confirmModal" hidden>
+    <div class="modal-backdrop"></div>
+    <div class="modal-sheet small">
+      <p id="confirmMessage">Are you sure?</p>
+      <div class="confirm-actions">
+        <button class="btn btn-ghost" id="confirmCancel">Cancel</button>
+        <button class="btn btn-primary danger" id="confirmOk">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
